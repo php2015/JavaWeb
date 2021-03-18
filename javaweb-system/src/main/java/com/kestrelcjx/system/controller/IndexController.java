@@ -138,6 +138,9 @@ public class IndexController {
         if (adminInfo == null) {
             return JsonResult.error("用户信息不存在");
         }
+        if(!adminInfo.getPassword().equals(CommonUtils.password(updatePasswordDto.getOldPassword()))) {
+            return JsonResult.error("密码错误");
+        }
         if (!adminInfo.getStatus().equals(1)) {
             return JsonResult.error("您的信息已被禁用");
         }
