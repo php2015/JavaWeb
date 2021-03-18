@@ -31,7 +31,7 @@ public class SystemConfig {
      * @param fullName 名称
      */
     @Value("${system.fullName}")
-    public static void setFullName(String fullName) {
+    public void setFullName(String fullName) {
         SystemConfig.fullName = fullName;
     }
 
@@ -45,7 +45,7 @@ public class SystemConfig {
      * @param nickName 简称
      */
     @Value("${system.nickName}")
-    public static void setNickName(String nickName) {
+    public void setNickName(String nickName) {
         SystemConfig.nickName = nickName;
     }
 
@@ -59,7 +59,7 @@ public class SystemConfig {
      * @param version 版本号
      */
     @Value("${system.version}")
-    public static void setVersion(String version) {
+    public void setVersion(String version) {
         SystemConfig.version = version;
     }
 }
