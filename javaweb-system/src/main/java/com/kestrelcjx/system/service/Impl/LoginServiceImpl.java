@@ -118,7 +118,7 @@ public class LoginServiceImpl implements ILoginService {
         // 获取当前登录人信息
         Admin user = ShiroUtils.getAdminInfo();
         // 记录用户退出日志
-        AsyncManager.me().execute(AsyncFactory.recordLogininfor(user.getUsername(), Constants.LOGOUT, "退出成功"));
+        AsyncManager.me().execute(AsyncFactory.recordLoginInfo(user.getUsername(), Constants.LOGOUT, "退出成功"));
         // 退出登录
         ShiroUtils.logout();
         return JsonResult.success("注销成功");
@@ -135,35 +135,35 @@ public class LoginServiceImpl implements ILoginService {
     public Admin login(String username, String password) {
         // 用户名和验证码校验
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("not.null")));
+            AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message("not.null")));
             throw new UserNotExistsException();
         }
         // 获取验证码
         String captcha = ServletUtils.getRequest().getSession().getAttribute("captcha").toString();
         if (StringUtils.isEmpty(captcha)) {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
+            AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
             throw new CaptchaException();
         }
         // 验证码校验
         if (!CaptchaUtil.ver(captcha, ServletUtils.getRequest())) {
             // 验证码校验
             CaptchaUtil.clear(ServletUtils.getRequest());  // 清除session中的验证码
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(captcha, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
+            AsyncManager.me().execute(AsyncFactory.recordLoginInfo(captcha, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
             throw new CaptchaException();
         }
         // 查询用户信息
         Admin user = adminService.getAdminByUsername(username);
         if (user == null) {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.not.exists")));
+            AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message("user.not.exists")));
             throw new UserNotExistsException();
         }
         // 判断用户状态
         if (user.getStatus() != 1) {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.blocked")));
+            AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message("user.blocked")));
             throw new LockedAccountException();
         }
         // 创建登录日志
-        AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
+        AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
         return user;
     }
 }
