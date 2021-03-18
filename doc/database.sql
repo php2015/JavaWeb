@@ -7,6 +7,12 @@ set foreign_key_checks = 0;
 drop table if exists `sys_ad`;
 
 create table `sys_ad`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `sort_id` int(11),
     `cover` varchar(64),
@@ -26,7 +32,7 @@ create table `sys_ad`(
 drop table if exists `sys_admin`;
 
 create table `sys_admin`(
-    `id` int(11) primary key,
+    `id` int(11) primary key auto_increment,
     `realname` varchar(64),
     `nickname` varchar(64),
     `gender` int(11),
@@ -62,9 +68,17 @@ create table `sys_admin`(
     `mark` int(11)
 );
 
+insert into sys_admin(`realname`, `nickname`, `gender`, `avatar`, `mobile`, `email`, `birthday`, `company_id`, `dept_id`, `level_id`, `position_id`, `province_id`, `city_id`, `district_id`, `address`, `username`, `password`, `salt`, `tags`, `intro`, `status`, `rules`, `role_ids`, `note`,  `sort`, `login_num`, `login_ip`, `login_time`, `create_user`, `create_time`, `update_user`, `update_time`, `mark`) values('Kestrel', 'Kestrel', 1, '', '12345678901', '123456@gmail.com', now(), 1, 1, 1, 1, 1, 1, 1, 'earth', 'admin', 'ddd056e3116ef3c8972a11c62a770a31', '', '', '', 1, '', '', '', 1, 0, '', now(), 1, now(), 1, now(), 1);
+
 drop table if exists `sys_admin_role`;
 
 create table `sys_admin_role`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `admin_id` int(11),
     `role_id` int(11)
 );
@@ -72,6 +86,12 @@ create table `sys_admin_role`(
 drop table if exists `sys_ad_sort`;
 
 create table `sys_ad_sort`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `note` varchar(64),
     `item_id` int(11),
@@ -84,6 +104,12 @@ create table `sys_ad_sort`(
 drop table if exists `sys_city`;
 
 create table `sys_city`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `level` int(11),
     `pid` int(11),
@@ -98,6 +124,12 @@ create table `sys_city`(
 drop table if exists `sys_config`;
 
 create table `sys_config`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `tag` varchar(64),
     `value` varchar(64),
@@ -112,6 +144,12 @@ create table `sys_config`(
 drop table if exists `sys_config_group`;
 
 create table `sys_config_group`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `sort` int(11)
 );
@@ -119,6 +157,12 @@ create table `sys_config_group`(
 drop table if exists `sys_crontab`;
 
 create table `sys_crontab`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `cron` varchar(64),
     `delay` int(11),
@@ -131,6 +175,12 @@ create table `sys_crontab`(
 drop table if exists `sys_dep`;
 
 create table `sys_dep`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `pid` int(11),
     `type` int(11),
@@ -141,6 +191,12 @@ create table `sys_dep`(
 drop table if exists `sys_dic`;
 
 create table `sys_dic`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `tag` varchar(64),
     `value` varchar(64),
@@ -153,6 +209,12 @@ create table `sys_dic`(
 drop table if exists `sys_dic_type`;
 
 create table `sys_dic_type`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `tag` varchar(64),
     `sort` int(11)
@@ -161,6 +223,12 @@ create table `sys_dic_type`(
 drop table if exists `sys_item`;
 
 create table `sys_item`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `type` int(11),
     `url` varchar(64),
@@ -174,6 +242,12 @@ create table `sys_item`(
 drop table if exists `sys_item_cate`;
 
 create table `sys_item_cate`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `pid` int(11),
     `item_id` int(11),
@@ -189,6 +263,12 @@ create table `sys_item_cate`(
 drop table if exists `sys_layout`;
 
 create table `sys_layout`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `item_id` int(11),
     `loc_id` int(11),
     `type` int(11),
@@ -200,6 +280,12 @@ create table `sys_layout`(
 drop table if exists `sys_layout_desc`;
 
 create table `sys_layout_desc`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `item_id` int(11),
     `loc_id` int(11),
@@ -210,6 +296,12 @@ create table `sys_layout_desc`(
 drop table if exists `sys_level`;
 
 create table `sys_level`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `status` int(11),
     `sort` int(11)
@@ -218,6 +310,12 @@ create table `sys_level`(
 drop table if exists `sys_link`;
 
 create table `sys_link`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `type` int(11),
     `url` varchar(64),
@@ -233,6 +331,12 @@ create table `sys_link`(
 drop table if exists `sys_login_log`;
 
 create table `sys_login_log`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `login_name` varchar(64),
     `login_time` timestamp,
@@ -248,6 +352,12 @@ create table `sys_login_log`(
 drop table if exists `sys_menu`;
 
 create table `sys_menu`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `icon` varchar(64),
     `url` varchar(64),
@@ -261,9 +371,42 @@ create table `sys_menu`(
     `sort` int(11)
 );
 
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '系统管理', '', '', '', 0, 3, '', 1, 1, '', 1);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '店铺管理', '', '', '', 0, 3, '', 1, 1, '', 2);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '商品管理', '', '', '', 0, 3, '', 1, 1, '', 3);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, 'CMS管理', '', '', '', 0, 3, '', 1, 1, '', 4);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '用户中心', '', '', '', 0, 3, '', 1, 1, '', 5);
+
+set @id = (select id from sys_menu where name='系统管理');
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '权限管理', '', '', '', @id, 1, '', 1, 1, '', 1);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '站点管理', '', '', '', @id, 1, '', 1, 1, '', 2);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '广告管理', '', '', '', @id, 1, '', 1, 1, '', 3);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '布局管理', '', '', '', @id, 1, '', 1, 1, '', 4);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '配置管理', '', '', '', @id, 1, '', 1, 1, '', 5);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '字典管理', '', '', '', @id, 1, '', 1, 1, '', 6);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '消息管理', '', '', '', @id, 1, '', 1, 1, '', 7);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '应用中心', '', '', '', @id, 1, '', 1, 1, '', 8);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '系统工具', '', '', '', @id, 1, '', 1, 1, '', 9);
+
+set @id = (select id from sys_menu where name='权限管理');
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '人员管理', '', '/admin/index', '', @id, 4, '', 1, 1, '', 1);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '角色管理', '', '/role/index', '', @id, 4, '', 1, 1, '', 2);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '职级管理', '', '/level/index', '', @id, 4, '', 1, 1, '', 3);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '岗位管理', '', '/position/index', '', @id, 4, '', 1, 1, '', 4);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '部门管理', '', '/dep/index', '', @id, 4, '', 1, 1, '', 5);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '部门管理', '', '/menu/index', '', @id, 4, '', 1, 1, '', 6);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '操作日志', '', '/operlog/index', '', @id, 4, '', 1, 1, '', 7);
+insert into `sys_menu`(`create_user`, `create_time`, `update_user`, `update_time`, `mark`, `name`, `icon`, `url`, `param`, `pid`, `type`, `permission`, `status`, `is_public`, `note`, `sort`) values(1, now(), 1, now(), 1, '登录日志', '', '/loginlog/index', '', @id, 4, '', 1, 1, '', 8);
+
 drop table if exists `sys_message`;
 
 create table `sys_message`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `content` varchar(64),
     `receiver` varchar(64),
@@ -277,6 +420,12 @@ create table `sys_message`(
 drop table if exists `sys_message_template`;
 
 create table `sys_message_template`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `code` varchar(64),
     `title` varchar(64),
     `type` int(11),
@@ -287,6 +436,12 @@ create table `sys_message_template`(
 drop table if exists `sys_notice`;
 
 create table `sys_notice`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `content` varchar(64),
     `source` int(11),
@@ -301,6 +456,12 @@ create table `sys_notice`(
 drop table if exists `sys_oper_log`;
 
 create table `sys_oper_log`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `title` varchar(64),
     `business_type` int(11),
     `method` varchar(64),
@@ -319,6 +480,12 @@ create table `sys_oper_log`(
 drop table if exists `sys_position`;
 
 create table `sys_position`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `status` int(11),
     `sort` int(11)
@@ -327,6 +494,12 @@ create table `sys_position`(
 drop table if exists `sys_role`;
 
 create table `sys_role`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `name` varchar(64),
     `rules` varchar(64),
     `status` int(11),
@@ -336,6 +509,12 @@ create table `sys_role`(
 drop table if exists `sys_role_dept`;
 
 create table `sys_role_dept`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `role_id` int(11),
     `dept_id` int(11)
 );
@@ -343,6 +522,12 @@ create table `sys_role_dept`(
 drop table if exists `sys_role_menu`;
 
 create table `sys_role_menu`(
+    `id` int(11) primary key auto_increment,
+    `create_user` int(11),
+    `create_time` timestamp,
+    `update_user` int(11),
+    `update_time` timestamp,
+    `mark` int(11),
     `role_id` int(11),
     `menu_id` int(11)
 );
