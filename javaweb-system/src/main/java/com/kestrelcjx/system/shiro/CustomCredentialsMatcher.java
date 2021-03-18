@@ -14,8 +14,7 @@ public class CustomCredentialsMatcher extends SimpleCredentialsMatcher {
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         UsernamePasswordToken utoken = (UsernamePasswordToken) token;
         String password = String.valueOf(utoken.getPassword());
-        String md51 = CommonUtils.md5(password.getBytes());
-        Object pwd = CommonUtils.md5((md51 + "IgtUdEQJyVevaCxQnY").getBytes());
+        Object pwd = CommonUtils.password(password).getBytes();
         Object accountCredentials = getCredentials(info);
         return equals(pwd, accountCredentials);
     }
