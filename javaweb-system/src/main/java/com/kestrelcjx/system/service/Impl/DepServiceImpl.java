@@ -145,7 +145,7 @@ public class DepServiceImpl extends BaseServiceImpl<DepMapper, Dep> implements I
                 nameList.add(depInfo.getName());
                 depId = depInfo.getPid();
             } else {
-                depId = 1;
+                break;
             }
         }
         // 使用集合工具实现数组翻转
