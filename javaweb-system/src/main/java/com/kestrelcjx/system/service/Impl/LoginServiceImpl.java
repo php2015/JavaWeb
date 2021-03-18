@@ -72,16 +72,14 @@ public class LoginServiceImpl implements ILoginService {
     @Override
     public JsonResult login(HttpServletRequest request, LoginDto loginDto) {
         // 验证码
-        if (!loginDto.getCaptcha().equals("520")) {
-            // 验证验证码是否为空
-            if (StringUtils.isEmpty(loginDto.getCaptcha())) {
-                return JsonResult.error("验证码不能为空");
-            }
-            // 验证码校验
-            if (!CaptchaUtil.ver(loginDto.getCaptcha(), request)) {
-                CaptchaUtil.clear(request);  // 清除session中的验证码
-                return JsonResult.error("验证码不正确");
-            }
+        // 验证验证码是否为空
+        if (StringUtils.isEmpty(loginDto.getCaptcha())) {
+            return JsonResult.error("验证码不能为空");
+        }
+        // 验证码校验
+        if (!CaptchaUtil.ver(loginDto.getCaptcha(), request)) {
+            CaptchaUtil.clear(request);  // 清除session中的验证码
+            return JsonResult.error("验证码不正确");
         }
         try {
             //验证身份和登陆
@@ -147,7 +145,7 @@ public class LoginServiceImpl implements ILoginService {
             throw new CaptchaException();
         }
         // 验证码校验
-        if (!captcha.equals("520") && !CaptchaUtil.ver(captcha, ServletUtils.getRequest())) {
+        if (!CaptchaUtil.ver(captcha, ServletUtils.getRequest())) {
             // 验证码校验
             CaptchaUtil.clear(ServletUtils.getRequest());  // 清除session中的验证码
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(captcha, Constants.LOGIN_FAIL, MessageUtils.message("user.jcaptcha.error")));
