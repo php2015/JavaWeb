@@ -181,6 +181,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         if (str == null) {
             return NULLSTR;
         }
+        end = Math.min(end, str.length());
         if (end < 0) {
             end = Math.max(0, str.length() + end);
         }
