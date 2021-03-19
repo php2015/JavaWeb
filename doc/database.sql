@@ -467,7 +467,7 @@ create table `sys_oper_log`(
     `method` varchar(64),
     `request_method` varchar(64),
     `operator_type` int(11),
-    `oper_num` varchar(64),
+    `oper_name` varchar(64),
     `oper_url` varchar(64),
     `oper_ip` varchar(64),
     `oper_location` varchar(64),

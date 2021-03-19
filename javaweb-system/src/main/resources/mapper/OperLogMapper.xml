@@ -6,7 +6,7 @@
     <!--创建系统操作日志-->
     <insert id="insertOperLog" parameterType="com.kestrelcjx.system.entity.OperLog">
         insert
-        into sys_oper_log(title, business_type, method, request_method, operator_type, oper_name, oper_url, oper_ip, oper_location, oper_param, json_result, status, error_msg, create_time)
-        values(#{title}, #{businessType}, #{method}, #{requestMethod}, #{operatorType}, #{operName}, #{operUrl}, #{operIp}, #{operLocation}, #{operParam}, #{jsonResult}, #{status}, #{errorMsg}, sysdate());
+        into sys_oper_log(create_user, create_time, update_user, update_time, mark, title, business_type, method, request_method, operator_type, oper_name, oper_url, oper_ip, oper_location, oper_param, json_result, status, error_msg)
+        values(0, now(), 0, now(), 1, #{title}, #{businessType}, #{method}, #{requestMethod}, #{operatorType}, #{operName}, #{operUrl}, #{operIp}, #{operLocation}, #{operParam}, #{jsonResult}, #{status}, #{errorMsg});
     </insert>
 </mapper>
