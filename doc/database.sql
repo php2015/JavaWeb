@@ -68,7 +68,7 @@ create table `sys_admin`(
     `mark` int(11)
 );
 
-insert into sys_admin(`realname`, `nickname`, `gender`, `avatar`, `mobile`, `email`, `birthday`, `company_id`, `dept_id`, `level_id`, `position_id`, `province_id`, `city_id`, `district_id`, `address`, `username`, `password`, `salt`, `tags`, `intro`, `status`, `rules`, `role_ids`, `note`,  `sort`, `login_num`, `login_ip`, `login_time`, `create_user`, `create_time`, `update_user`, `update_time`, `mark`) values('Kestrel', 'Kestrel', 1, '', '12345678901', '123456@gmail.com', now(), 1, 1, 1, 1, 1, 1, 1, 'earth', 'admin', 'ddd056e3116ef3c8972a11c62a770a31', '', '', '', 1, '', '', '', 1, 0, '', now(), 1, now(), 1, now(), 1);
+insert into sys_admin(`realname`, `nickname`, `gender`, `avatar`, `mobile`, `email`, `birthday`, `company_id`, `dept_id`, `level_id`, `position_id`, `province_id`, `city_id`, `district_id`, `address`, `username`, `password`, `salt`, `tags`, `intro`, `status`, `rules`, `role_ids`, `note`,  `sort`, `login_num`, `login_ip`, `login_time`, `create_user`, `create_time`, `update_user`, `update_time`, `mark`) values('Kestrel', 'Kestrel', 1, 'static/assets/images/kda.jpg', '12345678901', '123456@gmail.com', now(), 1, 1, 1, 1, 1, 1, 1, 'earth', 'admin', 'ddd056e3116ef3c8972a11c62a770a31', '', '', '', 1, '', '', '', 1, 0, '', now(), 1, now(), 1, now(), 1);
 
 drop table if exists `sys_admin_role`;
 
