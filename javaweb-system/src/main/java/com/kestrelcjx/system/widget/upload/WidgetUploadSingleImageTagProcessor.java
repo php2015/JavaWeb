@@ -47,11 +47,12 @@ public class WidgetUploadSingleImageTagProcessor extends AbstractElementTagProce
                              IElementTagStructureHandler iElementTagStructureHandler) {
         //获取标签的属性值
         String tagName = iProcessableElementTag.getAttributeValue("name");
+        String[] names = tagName.split("\\|");
         String tagValue = iProcessableElementTag.getAttributeValue("value");
-        String tagSize = iProcessableElementTag.getAttributeValue("size");
+        String tagSize = names[2];
         String[] itemSize = tagSize.split("x");
-        String tagTitle = iProcessableElementTag.getAttributeValue("title");
-        String sizeTips = iProcessableElementTag.getAttributeValue("tips");
+        String tagTitle = names[1];
+        String sizeTips = names[4];
         // 创建将替换自定义标签的 DOM 结构
         IModelFactory modelFactory = iTemplateContext.getModelFactory();
         IModel model = modelFactory.createModel();
