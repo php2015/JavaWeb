@@ -83,6 +83,8 @@ create table `sys_admin_role`(
     `role_id` int(11)
 );
 
+insert into sys_admin_role(create_user, create_time, update_user, update_time, mark, admin_id, role_id) values(1, now(), 1, now(), 1, 1, 1);
+
 drop table if exists `sys_ad_sort`;
 
 create table `sys_ad_sort`(
@@ -505,6 +507,11 @@ create table `sys_role`(
     `status` int(11),
     `sort` int(11)
 );
+
+insert into sys_role(create_user, create_time, update_user, update_time, mark, name, rules, status, sort) values(1, now(), 1, now(), 1, '超级管理员', '*:*:*', 1, 1);
+insert into sys_role(create_user, create_time, update_user, update_time, mark, name, rules, status, sort) values(1, now(), 1, now(), 1, '管理员', '*:*:*', 1, 2);
+insert into sys_role(create_user, create_time, update_user, update_time, mark, name, rules, status, sort) values(1, now(), 1, now(), 1, '运营', '*:*:*', 1, 3);
+insert into sys_role(create_user, create_time, update_user, update_time, mark, name, rules, status, sort) values(1, now(), 1, now(), 1, '客服', '*:*:*', 1, 4);
 
 drop table if exists `sys_role_dept`;
 
