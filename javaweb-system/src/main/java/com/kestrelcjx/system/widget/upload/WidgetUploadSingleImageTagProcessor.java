@@ -48,6 +48,7 @@ public class WidgetUploadSingleImageTagProcessor extends AbstractElementTagProce
         //获取标签的属性值
         String tagName = iProcessableElementTag.getAttributeValue("name");
         String[] names = tagName.split("\\|");
+        tagName = names[0];
         String tagValue = iProcessableElementTag.getAttributeValue("value");
         String tagSize = names[2];
         String[] itemSize = tagSize.split("x");
@@ -62,7 +63,7 @@ public class WidgetUploadSingleImageTagProcessor extends AbstractElementTagProce
         if (StringUtils.isEmpty(tagValue)) {
             model.add(modelFactory.createOpenElementTag("a href=\"javascript:void(0);\""));
             model.add(modelFactory.createOpenElementTag(
-                    String.format("img id=\"%s_show_id\" src=\"/static/images/default_upload.png\"" +
+                    String.format("img id=\"%s_show_id\" src=\"/static/assets/images/default_upload.png\"" +
                                     " alt=\"上传图片\" width=\"%s\" height=\"%s\"",
                             tagName, Integer.valueOf(itemSize[0]), Integer.valueOf(itemSize[1]))));
         } else {
