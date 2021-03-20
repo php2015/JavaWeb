@@ -35,7 +35,7 @@ public class DbConfig {
      * @param driver 驱动名
      */
     @Value("${spring.datasource.driver-class-name}")
-    public static void setDriver(String driver) {
+    public void setDriver(String driver) {
         DbConfig.driver = driver;
     }
 
@@ -49,7 +49,7 @@ public class DbConfig {
      * @param url 连接
      */
     @Value("${spring.datasource.url}")
-    public static void setUrl(String url) {
+    public void setUrl(String url) {
         DbConfig.url = url;
     }
 
@@ -63,7 +63,7 @@ public class DbConfig {
      * @param username 登录名
      */
     @Value("${spring.datasource.username}")
-    public static void setUsername(String username) {
+    public void setUsername(String username) {
         DbConfig.username = username;
     }
 
@@ -77,7 +77,7 @@ public class DbConfig {
      * @param password 登录密码
      */
     @Value("${spring.datasource.password}")
-    public static void setPassword(String password) {
+    public void setPassword(String password) {
         DbConfig.password = password;
     }
 }
